@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài tập hàm</title>
+    <!-- BS 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <!-- MAIN CSS  -->
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <section class="content">
+        <div class="container">
+            <div class="main">
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                      <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab">Bài 1</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                      <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab">Bài 2</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                      <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#bai3-tab-pane" type="button" role="tab">Bài 3</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                      <button class="nav-link" id="disabled-tab" data-bs-toggle="tab" data-bs-target="#bai4-tab-pane" type="button" role="tab">Bài 4</button>
+                    </li>
+                  </ul>
+                  <div class="tab-content contentTab" id="myTabContent">
+                    <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+                        <h3>Quản lí tuyển sinh</h3>
+                        <form action="">
+                            <input type="number" name="" id="diemchuan" placeholder="Điểm chuẩn">
+                            <select name="" class="form-control " id="khuVuc">
+                                <option value="0" class="text-center">Chọn khu vực</option>
+                                <option value="A">A</option>
+                                <option value="B">B</option>
+                                <option value="C">C</option>
+                            </select>
+                            <select name="" class="form-control " id="doiTuong">
+                                <option value="0" class="text-center">Chọn đối tượng</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select> <br>
+                            <input type="number" name="" id="mon1" placeholder="Điểm môn thứ nhất">
+                            <input type="number" name="" id="mon2" placeholder="Điểm môn thứ hai">
+                            <input type="number" name="" id="mon3" placeholder="Điểm môn thứ ba"> <br>
+                            <button type="button" onclick="tinhDiem()" class="btn btn-success mt-4">Kết quả</button>
+                        </form>
+                        <div class="ketqua" id="result1"></div>
+                    </div>
+                    <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+                        <h3>Tính tiền điện</h3>
+                        <form action="">
+                            <input type="text" name="" id="user" placeholder="Nhập tên">
+                            <input type="number" name="" id="kw" placeholder="Số kw"> <br>
+                            <button onclick="tinhTienDien()" class="btn btn-success mt-4" type="button">Tính tiền</button>
+                        </form>
+                        <div class="ketqua" id="result2"></div>
+                    </div>
+                    <div class="tab-pane fade" id="bai3-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+                      <h3>Tính thuế thu nhập cá nhân</h3>
+                        <form action="">
+                            <input type="text" name="" id="hoten" placeholder="Nhập họ tên">
+                            <input type="number" name="" id="thunhap" placeholder="Tổng thu nhập năm">
+                            <input type="number" name="" id="phuthuoc" placeholder="Số người phụ thuộc"> <br>
+                            <button onclick="tinhTienThue()" class="btn btn-success mt-4" type="button">Tính tiền thuế</button>
+
+                        </form>
+                        <div class="ketqua" id="result3"></div>
+                    </div>
+                    <div class="tab-pane fade" id="bai4-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+                      <h3>Tính tiền cáp</h3>
+                      <form action="">
+                        <select onclick="hienOKetNoi()"  class="form-control" name="" id="loaiKH">
+                          <option>Chọn loại khách hàng</option>
+                          <option value="1">Nhà dân</option>
+                          <option value="2">Doanh nghiệp</option>
+                        </select>
+                        <input type="text" name="" id="makh" placeholder="Nhập mã khách hàng">
+                        <input type="number" name="" id="sokenh" placeholder="Số kênh cao cấp">
+                        <input type="number" name="" id="soketnoi" placeholder="Số kết nối"> <br>
+                        <button onclick="tinhTienCap()" type="button" class="btn btn-success mt-4">Tính tiền cáp</button>
+                      </form>
+                      <div class="ketqua" id="result4"></div>
+                    </div>
+                    
+                  </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- BS 5  -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <!-- MAIN JS  -->
+    <script src="./js/main.js"></script>
+</body>
+</html>
